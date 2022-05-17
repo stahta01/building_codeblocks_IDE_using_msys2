@@ -16,3 +16,4 @@
 ###### windres.exe
 #### Additional Paths
 ##### C:\misctools\zip
+##### $(TARGET_COMPILER_DIR)../usr/bin
