@@ -1,0 +1,235 @@
+Index: src/CodeBlocks_wx31_64.cbp
+===================================================================
+--- src/CodeBlocks_wx31_64.cbp	(revision 12814)
++++ src/CodeBlocks_wx31_64.cbp	(working copy)
+@@ -69,6 +69,7 @@
+ 					<Add directory="sdk/wxscintilla/src/scintilla/include" />
+ 					<Add directory="sdk/wxscintilla/src/scintilla/src" />
+ 					<Add directory="sdk/wxscintilla/src/scintilla/lexlib" />
++					<Add directory="include" />
+ 				</Compiler>
+ 				<ResourceCompiler>
+ 					<Add directory="sdk/wxscintilla/include" />
+@@ -111,6 +112,11 @@
+ 					<Add option="-Wl,--add-stdcall-alias" />
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_aui-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_html-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)_net-$(WX_VERSION).dll" />
+ 					<Add library="shfolder" />
+ 					<Add library="txml" />
+ 					<Add library="wxscintilla_cb" />
+@@ -120,7 +126,7 @@
+ 				<ExtraCommands>
+ 					<Add before="$(TARGET_OBJECT_DIR)\autorevision +wx +int +t .. include/autorevision.h" />
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+-					<Add after="zip -jq9 devel31_64\share\CodeBlocks\manager_resources.zip sdk\resources\*.xrc" />
++					<Add after="zip -jq9 devel31_64/share/CodeBlocks/manager_resources.zip sdk/resources/*.xrc" />
+ 					<Add after='cmd /c &quot;cd sdk\resources &amp; zip -0 -q ..\..\devel31_64\share\CodeBlocks\manager_resources.zip images\*.png images\8x8\*.png images\10x10\*.png images\12x12\*.png images\16x16\*.png images\20x20\*.png images\24x24\*.png images\28x28\*.png images\32x32\*.png images\40x40\*.png images\48x48\*.png images\56x56\*.png images\64x64\*.png&quot;' />
+ 					<Mode after="always" />
+ 				</ExtraCommands>
+@@ -147,6 +153,10 @@
+ 					<Add option="-Wl,--enable-auto-import" />
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add library="codeblocks" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_aui-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_html-$(WX_VERSION).dll" />
+ 					<Add library="exchndl" />
+ 					<Add library="shfolder" />
+ 					<Add library="kernel32" />
+@@ -199,7 +209,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -231,7 +243,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -261,7 +275,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -307,7 +323,11 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_propgrid-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)_xml-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 					<Add library="depslib" />
+ 				</Linker>
+ 				<ExtraCommands>
+@@ -341,7 +361,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -371,7 +393,10 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_aui-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -401,7 +426,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -431,7 +458,10 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_html-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -461,7 +491,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -491,7 +523,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -521,7 +555,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -552,7 +588,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -582,7 +620,9 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_xrc-$(WX_VERSION).dll" />
++					<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -612,7 +652,7 @@
+ 					<Add option="-Wl,--no-undefined" />
+ 					<Add option="-mthreads" />
+ 					<Add library="codeblocks" />
+-					<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++					<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 				</Linker>
+ 				<ExtraCommands>
+ 					<Add after="cmd /c if not exist devel31_64\share\CodeBlocks mkdir devel31_64\share\CodeBlocks" />
+@@ -623,7 +663,8 @@
+ 			<Environment>
+ 				<Variable name="WX_CFG" value="" />
+ 				<Variable name="WX_SUFFIX" value="u" />
+-				<Variable name="WX_VERSION" value="31" />
++				<Variable name="WX_TOOLKIT" value="msw" />
++				<Variable name="WX_VERSION" value="3.1" />
+ 			</Environment>
+ 		</Build>
+ 		<VirtualTargets>
+@@ -648,18 +689,19 @@
+ 			<Add option="-DCB_PRECOMP" />
+ 			<Add option="-DwxUSE_UNICODE" />
+ 			<Add option="-D_WIN64" />
+-			<Add directory="$(#WX31_64.include)" />
+-			<Add directory="$(#WX31_64.lib)/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="$(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)" />
++			<Add directory="$(TARGET_COMPILER_DIR)lib/wx/include/$(WX_TOOLKIT)-unicode-$(WX_VERSION)" />
+ 			<Add directory="sdk/wxscintilla/include" />
+ 			<Add directory="include/tinyxml" />
+ 		</Compiler>
+ 		<ResourceCompiler>
+-			<Add directory="$(#WX31_64.include)" />
+-			<Add directory="$(#WX31_64)/lib/gcc_dll$(WX_CFG)/msw$(WX_SUFFIX)" />
++			<Add directory="$(TARGET_COMPILER_DIR)include/wx-$(WX_VERSION)" />
++			<Add directory="$(TARGET_COMPILER_DIR)lib/wx/include/$(WX_TOOLKIT)-unicode-$(WX_VERSION)" />
+ 		</ResourceCompiler>
+ 		<Linker>
+ 			<Add option="-m64" />
+-			<Add library="wxmsw$(WX_VERSION)$(WX_SUFFIX)" />
++			<Add library="wx_$(WX_TOOLKIT)$(WX_SUFFIX)_core-$(WX_VERSION).dll" />
++			<Add library="wx_base$(WX_SUFFIX)-$(WX_VERSION).dll" />
+ 			<Add directory="$(#WX31_64.lib)/gcc_dll$(WX_CFG)" />
+ 			<Add directory="devel31_64" />
+ 		</Linker>
